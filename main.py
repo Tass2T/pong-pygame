@@ -1,4 +1,4 @@
-import pygame, config, classes, inputs
+import init, pygame, config, classes, inputs
 
 pygame.display.set_caption("Pong")
 clock = pygame.time.Clock()
