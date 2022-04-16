@@ -21,6 +21,13 @@ while True:
     playerScore = config.font.render(str(player.score), True, config.white)
     opponentScore = config.font.render(str(opponent.score), True, config.white)
 
+    # move and update
+    ball.move()
+    player.move()
+    opponent.defineDirection(ball)
+    opponent.move()
+    ball.checkForCollision(player.rect, opponent.rect)
+
     # drawings here 
     screen.fill(config.lightGray)
     screen.blit(playerScore, (int(config.WIDTH/2-50), 15))
@@ -29,13 +36,6 @@ while True:
     pygame.draw.rect(screen,config.white, player.rect)
     pygame.draw.rect(screen, config.white, opponent.rect)
     pygame.draw.aaline(screen, config.white, (config.WIDTH/2, 0), (config.WIDTH/2, config.HEIGHT))
-
-    # move and update
-    ball.move()
-    player.move()
-    opponent.defineDirection(ball)
-    opponent.move()
-    ball.checkForCollision(player.rect, opponent.rect)
 
     pygame.display.flip()
     clock.tick(config.FRAMERATE)
