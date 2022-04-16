@@ -23,6 +23,18 @@ class Opponent:
         self.rect = pygame.Rect(int(config.WIDTH-35), int(config.HEIGHT/2-self.height/2), self.width, self.height)
         self.direction = "NONE"
         self.score = 0
+    
+    def defineDirection(self, ballObject):
+        if ballObject.rect.top - ballObject.height/2 < self.rect.top:
+            self.direction ="UP"
+        elif ballObject.rect.top - ballObject.height/2  > self.rect.bottom:
+            self.direction ="DOWN"
+        else:
+            self.direction ="NONE"
+
+    def move(self):
+        if self.direction == "UP" and self.rect.y > 0: self.rect.y -= 7
+        if self.direction == "DOWN" and self.rect.y < config.HEIGHT - self.height: self.rect.y += 7
 
 class Ball:
     def __init__(self):

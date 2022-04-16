@@ -33,6 +33,8 @@ while True:
     # move and update
     ball.move()
     player.move()
+    opponent.defineDirection(ball)
+    opponent.move()
     ball.checkForCollision(player.rect, opponent.rect)
 
     pygame.display.flip()
