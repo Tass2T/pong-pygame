@@ -30,8 +30,8 @@ while True:
 
     # drawings here 
     screen.fill(config.lightGray)
-    screen.blit(playerScore, (int(config.WIDTH/2-50), 15))
-    screen.blit(opponentScore, (int(config.WIDTH/2+20), 15))
+    screen.blit(playerScore, (int(config.WIDTH/2-70), 15))
+    screen.blit(opponentScore, (int(config.WIDTH/2+40), 15))
     pygame.draw.ellipse(screen, config.white, ball.rect)
     pygame.draw.rect(screen,config.white, player.rect)
     pygame.draw.rect(screen, config.white, opponent.rect)

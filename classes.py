@@ -1,4 +1,4 @@
-import config, pygame
+import config, pygame, random
 
 class Player:
     def __init__(self):
@@ -51,6 +51,8 @@ class Ball:
     def resetPos(self):
         self.rect.y = config.HEIGHT / 2
         self.rect.x = config.WIDTH / 2
+        self.speed_y *= random.choice((1,-1))
+        self.speed_x *= random.choice((1, -1))
 
     def checkForCollision(self, player,opponent):
         # collision with walls
