@@ -60,14 +60,20 @@ class Ball:
         
         if self.rect.x <= 10: 
             opponent.score += 1
+            pygame.mixer.Sound.play(config.score_sound)
             self.resetPos()
         if self.rect.x >= config.WIDTH - 30: 
             player.score += 1
+            pygame.mixer.Sound.play(config.score_sound)
             self.resetPos()
         
         # collisions with player or opponent
-        if pygame.Rect.colliderect(self.rect, player.rect): self.bounce(player)
-        if pygame.Rect.colliderect(self.rect, opponent.rect): self.bounce(player)
+        if pygame.Rect.colliderect(self.rect, player.rect): 
+            pygame.mixer.Sound.play(config.plob_sound)
+            self.bounce(player)
+        if pygame.Rect.colliderect(self.rect, opponent.rect): 
+            pygame.mixer.Sound.play(config.plob_sound)
+            self.bounce(player)
 
     def bounce(self, playerObject):
         self.speed_x *= -1

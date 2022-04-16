@@ -6,11 +6,11 @@ def getInput(PlayerObject):
             pygame.quit()
             sys.exit()
         if event.type == pygame.KEYDOWN:
-            if event.scancode == 38: 
+            if event.scancode == 4: 
                 pygame.quit()
                 sys.exit()
-            if event.scancode == 111: PlayerObject.direction = "UP"
-            if event.scancode == 116: PlayerObject.direction = "DOWN"
+            if event.scancode == 82: PlayerObject.direction = "UP"
+            if event.scancode == 81: PlayerObject.direction = "DOWN"
         if event.type == pygame.KEYUP:
-            if event.scancode == 111 and PlayerObject.direction == "UP": PlayerObject.direction = "NONE"
-            if event.scancode == 116 and PlayerObject.direction == "DOWN": PlayerObject.direction = "NONE"
+            if event.scancode == 82 and PlayerObject.direction == "UP": PlayerObject.direction = "NONE"
+            if event.scancode == 81 and PlayerObject.direction == "DOWN": PlayerObject.direction = "NONE"

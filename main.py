@@ -1,6 +1,5 @@
 import pygame, config, classes, inputs
 
-pygame.init()
 pygame.display.set_caption("Pong")
 clock = pygame.time.Clock()
 
