@@ -64,10 +64,10 @@ class Ball:
             self.resetPos()
         
         # collisions with player or opponent
-        if pygame.Rect.colliderect(self.rect, player.rect): self.reverse_x()
-        if pygame.Rect.colliderect(self.rect, opponent.rect): self.reverse_x()
+        if pygame.Rect.colliderect(self.rect, player.rect): self.bounce(player)
+        if pygame.Rect.colliderect(self.rect, opponent.rect): self.bounce(player)
 
-    def reverse_x(self):
+    def bounce(self, playerObject):
         self.speed_x *= -1
 
     def reverse_y(self):
