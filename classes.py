@@ -48,13 +48,24 @@ class Ball:
         self.rect.x += self.speed_x
         self.rect.y += self.speed_y
 
-    def checkForCollision(self, playerRect,opponentRect):
+    def resetPos(self):
+        self.rect.y = config.HEIGHT / 2
+        self.rect.x = config.WIDTH / 2
+
+    def checkForCollision(self, player,opponent):
         # collision with walls
         if self.rect.y >= config.HEIGHT or self.rect.y <= 0: self.reverse_y()
-        if self.rect.x >= config.WIDTH or self.rect.x <= 0: self.reverse_x()
+        
+        if self.rect.x <= 10: 
+            opponent.score += 1
+            self.resetPos()
+        if self.rect.x >= config.WIDTH - 30: 
+            player.score += 1
+            self.resetPos()
+        
         # collisions with player or opponent
-        if pygame.Rect.colliderect(self.rect, playerRect): self.reverse_x()
-        if pygame.Rect.colliderect(self.rect, opponentRect): self.reverse_x()
+        if pygame.Rect.colliderect(self.rect, player.rect): self.reverse_x()
+        if pygame.Rect.colliderect(self.rect, opponent.rect): self.reverse_x()
 
     def reverse_x(self):
         self.speed_x *= -1

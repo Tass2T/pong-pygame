@@ -26,7 +26,7 @@ while True:
     player.move()
     opponent.defineDirection(ball)
     opponent.move()
-    ball.checkForCollision(player.rect, opponent.rect)
+    ball.checkForCollision(player, opponent)
 
     # drawings here 
     screen.fill(config.lightGray)
